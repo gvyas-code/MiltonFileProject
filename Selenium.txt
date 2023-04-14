@@ -1,0 +1,20 @@
+Notes:-
+
+1)To format and align the code in Eclipse:- press "CTRL+Shift+F"
+2)CamelCase Standard(Nameing Convention in defining class ,Variable and method names)
+-Whenever you write/define a class name,make sure the first character is capital letters and all the remaining of small letters
+Eg-public class CoreJavaBrushup1, public class AdvanceLocator
+-When you define a variable ,variable name should always start with small letters
+Eg-String text ="Gopal Vyas";
+-When you have multiple words in your variable name,all the subsequent words should start with a capital letters
+Eg. int rowCount, int extrasValue, int totalSumValue
+-When you have multiple words in your method name,all the subsequent words should start with a capital letters
+Eg. 
+
+3)Debug
+-Right click on nay line where you want to pass the script at one particular point and from that point you can continue execution step by watching your execution
+ from here(I want to watch my execution step by step from this point)
+-Right click on that lin enumber>Toggle Breakpoint(CTRL+SHIFT+B)
+-Right Click>Debug As>Java Application
+-If you want to watch execution step by step then Click on Step Over(F6)
+-Resume(F8) below Refactor sign

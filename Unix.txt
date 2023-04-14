@@ -1,0 +1,443 @@
+Amdocs@123
+
+Basic command
+#Command:-PWD
+Check current working directory(eg.PWD)
+#Command:-clear
+Clear terminal screen(eg.clear)
+#Command:-man
+Find help of different commands(eg.man pwd,press q to exit)
+
+
+
+
+#Folder Commands
+-Create new folder(directory)
+eg. mkdir foldername
+-Create directory and sub directory
+eg . mkdir -p -v foldername1/foldername2 //P:parent
+-Create Multiple directories
+eg. mkdir folder{1..3}
+mkdir {1..3}folder
+mkdir folder{1,3,5,7}
+-Remove Multiple directories
+eg.rmdir folder*
+rmdir *folder
+-Move inside to folder (Directory)
+eg. cd foldername
+cd foldername1/foldername2
+-Come out from  folder (Directory)
+eg. cd .., cd ../..
+-Navigate to Root Directory
+eg cd ..
+-Rename any folder (Directiry)
+mv filename1 filename2
+-Remove any folder(Directory)
+eg.rmdir foldername
+
+#File
+1.Create a blank file
+eg. touch filename
+2.Create file with content(check its content)
+eg. cate > filename,enter,write content ,press ctrl+c
+3.Use editor to create a file(VIM editor)
+4.Insert data into blank file
+5.remove file
+eg.rm file
+rm -r file //r:recursive
+
+#Display files and folder(ls command)
+1.Display files and folders(ls)
+2.Display in list format(ls -l)
+3.Display hidden filesas well(ls -a)
+4.Display in sorted order of creation (recently will display first)(ls -t)
+5.Display in sorted order of time(opposite of 4)(ls -tr)
+6.Display in human readable format(ls -lh)
+------------------------------------------------------------------------------------
+#Use of CAT command
+
+1.Display content of a file
+eg. cat filename
+cat filename //-n shows line number
+2.Create a new file with content
+eg. cat > filename,write content ,press ctrl+c
+3.Copy content of 1 file to another file
+eg. cat file1 > newfile2
+4.Merge multiple files to create a new file
+eg. cat file1 file2 > file3
+cat file3
+5.Copy content of a file to another in append mode
+eg.cat file3 > file4 //existing data will be removed from file3 and override to file4 i.e. '>' works in override mode
+6.Display content of a file to another in append mode
+eg.cat file1 >> file2 //no existing data will be removed from file1 and copied to file2 as well
+-------------------------------------------------------------------------------------
+# View contest of Files
+
+Tail command
+1.Display few lines from the button of the file (default 10) 
+eg. tail filename
+2.Give line number to define how many lines want to display 
+eg. tail -n 20 filename
+3.Give how many bytes of data you want to display 
+eg. tail -c 2000 filename
+ 
+Head command
+1.Display few lines from the button of the file (default 10) 
+eg. head filename
+2.Give line number to define how many lines want to display 
+eg. head -n 20 filename, head -20 filename
+3.Display only few bytes from the file 
+eg. head -c 2000 filename
+4.Skip few lines from the bottom 
+eg.head -n 20 filename
+
+Cat command
+1.Display complete content of a file
+2.This command is good for smaller files
+3.Display line number
+eg. cat -n filename 
+4.Skip blank lines
+
+More commnad
+1.Display content of the file with paging
+2.Display message to use different operators(-d)
+3.Can move into forword direction only
+
+
+Less command
+1.Display content of the file with paging
+2.Can move into forward as well as backword direction
+3.d (used to move to next page)
+4.b (used to move to back page)
+
+VIM editor
+Open complete file in VIM editor
+View and close without saving
+We can also change content
+eg.
+vim filename
+press 'i/insert' to edit file after edit >> press 'Esc' then to save the changes press shift+:wq!>>press enter
+
+
+
+--------------------------------------------------------------------------
+
+
+#Command:grep
+1.Grep stands for Global Regular Expression parser
+2.Use to Search data in a file
+3.Here we will cover search data in ine file
+Search 1: Search data in a file
+eg. grep "content" filename
+
+Search 2: Search data in multiple file in a location
+eg. grep "content" filename1 filename2 filename3
+
+Search 3: Search data in all files in a location
+eg. grep "content" *.*
+
+Search 4: Search data with case insensitive
+eg. grep -i "data" files
+
+Search 5: Search data and display line number
+eg. grep -n "data" filename
+
+Search 6: Search data and display filename where it found
+eg. grep -l "Text" *.*
+
+Search 7: Search data by matching exact word(Not as a substring)
+eg. grep -w "Text" Filename
+
+Search 8: Search data by ignore (exclude)given data
+eg. grep -v data Filename
+
+Search 9: Search data and display only count of matches
+eg. grep -c Text File
+
+Search 10: Search data and display result.Also display surrounding lines of matched result
+
+eg.
+grep -B 5 Text Filename
+grep -A 5 Text Filename
+grep -C 5 Text Filename
+
+ADVANCE SEARCH
+
+Search 11: Search multiple data and display result
+eg.
+grep -e "FirstData" -e "SecondData" Filename 
+
+
+#Command: egrep(EXTENDED GREP)
+
+Search 12: Search multiple data and display result
+eg. egrep -n -i "She|the|2010" filename
+
+
+------------------------------------------------------------------------------------
+#Copy Files and Dicectories
+Command : cp
+
+1.Copy File from 1 folder to another
+eg. cp file destination
+2.Copy File to different location
+eg. cp /home/gvyas/Downloads/file1 /home/gvyas/Downloads/folder
+3.Copy file only if its updated file
+eg. cp -u file1 file2                //-u is updated.This operation is performed only when data is not same i.e. updated
+4.Copy multiple files
+eg. cp {file1,file2} /home/gvyas/gopalfolder
+5.Copy folder(Directory) from one location to another(recursive)
+eg.cp -r Folder1 Folder2            //-r recursive i.e. if folder have data
+cp /home/gvyas/folder1 /home/gvyas/shivam
+6.Copy file with Verbose
+eg.cp -r -v Folder1 Folder2
+7.Copy folder with all its content(-r)
+
+--------------------------------------------------------------------------------
+Symbol to use in commands
+> :- redirects standard output
+eg.
+grep -i 2010 file.txt > newfile.txt
+ls -l
+cat newfile.txt
+
+>>:- redirects and append standard output
+eg. cat file1 file2 >> file3
+< :- redirect standard input
+| :- Link between 2 or more commands
+Pipe (|)
+eg.
+head -n 23 file.txt | tail -n 8
+head -n 23 file.txt | tail -n 8 | grep 2009
+head -n 10 | grep 2010
+ps -ef | gerp monitor
+ls -l | grep -i Folder
+grep -i USA file.txt | grep -i 20
+
+
+#Permission
+Command:chmod
+2^2+2^1+2^0=7
+eg. chmod 777 folder
+--------------------------------------------------------------------------------
+rwx               rwx                                 rwx      
+owner             other group member                  Any user on this unix
+
+eg.
+Read and write for Owner
+2^2+2^1+0=6
+Read and Execute for other Group members
+2^2+0+2^0=5
+Read for other users
+2^2+0+0=4
+
+-----------------------------------------------------------------------------
+
+
+
+
+
+
+
+Compare Files Command
+
+Command 1: cmp
+-Compare two files byte by byte 
+-Display first different byte
+Options
+-Compare only given number of bytes(-n)
+-Print only different bytes
+-Display clear message in output (verbose)(-l)
+eg. cmp file1 file2 
+cmp -n file1 file2
+cmp -l file1 file2
+
+
+Command 2: comm
+-compare sorted files line by line
+-Display 3 columns in output
+Output(-1,-2,-3)
+- column 1 : content in file 1
+- column 2 : content in file 2
+- column 3 : content in file 3
+Display only selected columns
+eg.comm file1 file2
+comm -1 -2 file1 file2 //remove column 1 & 2 
+
+Command 3: diff
+-Compare 2 files line by line 
+-Display only different lines
+Options
+-(-q): Display error message
+-(-s): Display success message
+-(-y): compare files side by side 
+-(--suppress-common-lines)-Skipping common lines
+-(--left-column)
+
+
+
+
+
+
+
+
+
+
+#Find files/folder in current directory
+Command Name:- find
+Search data in current directory
+Search data in current directory hiearchy(eg. find . | grep file.txt)
+
+#Search file in complete system
+Command Name:- locate
+Options:-
+Display only matched count(-c)(eg. locate -c folder)
+Search with ignore case(-i)
+Search by matching while word(-w) ()
+Search with limiting results(-l 4) (eg. locate -l 4 filename)
+
+#Cut command-Process data of a file
+Use to fetch data from top to down(column data)
+Works only on files having column formatted data
+Syntax-1 Display only a particular position character(eg. cat filename, cut -c1 filename) // d-delimeter
+Syntax-2 Fetch data from range of characters(cut -c1-3 filename, cut -c3- filename, cut -c-3 filename)
+
+Syntax-1 Display only a particular column data(eg. cat filename, cut -d "," -f1 filename) //
+Syntax-2 Fetch data from range of column(cut -d "," -f1-3 filename, cut -d "," -f3- filename, cut -d "," -f-3 filename)
+
+
+Syntax:-Display all column by skipping only few columns(eg. cat filename, cut -d "," --complement -f1 filename, cut -d "," --complement -f3-5 filename,
+cut -d "," --output-delimeter "|" -f3-7 filename) //
+Option:-Cut command with only column formatted data(cut -s -d "," -f3-5 filename)
+
+
+
+
+
+
+#SED:-Stream Editor
+Used to Display and Editing Data
+Editing Opetions are -Insertion | Addition | Deletion
+2 Types Operation:-
+-Line Addressing
+Command 1: Display line multiple times(eg. cat filename, sed '3p' filename)
+Command 2: Display only specific line(eg. cat filename, sed -n '3p' filename)
+Command 3: Display last line(cat filename,sed '$p' filename, sed -n '$p' filename)
+Command 4: Display Range of Line(eg. cat filename, sed -n '1,3p' filename)
+Command 5: Do not display specific lines(eg. cat filename, sed -n '2!p' filename)
+Command 6: Do not display specific range of lines(eg. cat filename, sed -n '2,4!p' filename)
+-Context Addressing
+
+#Locate
+Options
+Eg. locate gopal
+Display only matched count(-c) (eg. locate -c folder)
+Search wwith ignore case(-i)  ()
+Search by matching whole word(-w)
+Search  with limiting results(-l 4)  (eg. locate -l 20 folder)
+
+#Find
+Find files / folder in current directory
+Search data in current directory
+Search data in current directory hiearchy
+eg. find . | grep movie.csv
+
+
+#cut (Process data of a file )
+Use to fetch data from top to down (common data)
+Works only on files having column formatted data
+Syntax 1: Display only a particular position character
+Syntax 2: Fetch data from range of characters
+
+eg.
+cut -d "," -f1 movie.csv
+cut -d "," -f1-3 movie.csv
+cut -d "," -f1-  movie.csv
+
+----------------------------------------------------------------
+Broadcast command:-
+1)Wall command is used to send message to all the users that are logged in.
+Eg.
+wall <message>
+2)Write command is used to send message to a specific user.
+Eg.
+write gvyas
+Hi
+How are you?
+CTRL+C
+----------------------------------------------------------------
+free- to check memory 
+-----------------------------------------------------------
+sort command -used to sont contentin a file
+
+Eg.
+nano gopal
+a
+z
+f
+e
+CTRL+X
+
+sort gopal(sort data in accending order)
+a
+e
+f
+z
+
+sort -r gopal(sort data in decending order)
+--------------------------------------------------
+man, whatis
+
+-----------------------------------------------------------
+Network command
+
+ifconfig
+-----------------------------------------------------
+To find ip 4 or 6 address
+Eg.
+ip -4 addr
+ip -6 addr
+-------------------------------------------------------
+netstat-show you the detailed information about network activity on your linux machine
+
+netstat
+netstat -a
+netstat -at(Only TCP connection)
+netstat-u(Only UDP port)
+netstat -l (Listening to only active port)
+
+-------------------------------------------------------
+curl
+
+post request:-
+
+curl -X POST url
+
+
+
+
+
+
+
+
+
+
+Basic System Command
+-Open calender
+-Check currect date
+-Check my own details
+-Display banner
+
+
+
+----------------------------------------------------------------------------------------------
+
+C:\Users\gopalv\AppData\Local\Programs\Microsoft VS Code
+
+
+
+
+
+
+
+
